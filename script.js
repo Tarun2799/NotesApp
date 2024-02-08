@@ -18,13 +18,19 @@ const saveNotes = function(){
         data.push(note.value);
     })
     console.log(data);
-    localStorage.setItem("notes", JSON.stringify(data));
+
+    // jab sare notes delete hojaye , to local storage mai se "notes" ko remove kar denge. localstorage faltu mai fil nahi hogi. to isse ye hoga jo IIFE mai lsNotes aare hai vo "null" value bhi aayegi. let's go to iife.
+    if(data.length === 0){
+        localStorage.removeItem("notes");
+    }else{
+        localStorage.setItem("notes", JSON.stringify(data));
+    }
 }
 
 
 
 
-const addNote = ( text = "") =>     {
+const addNote = ( text = "" ) =>     {
 
     const note = document.createElement('div');
     note.classList.add('note');
@@ -48,6 +54,10 @@ const addNote = ( text = "") =>     {
         saveNotes();
     })
 
+    // ab ye choti functionality, jab textarea se focus out kar denge to text automatic save hojaye bina save button ko press kiye. IT'S LIKE AUTOSAVE.
+    note.querySelector("textarea").addEventListener('focusout',()=>{
+        saveNotes();
+    }) 
     notePad.appendChild(note);
     saveNotes(); // bina save kiye agar referesh kardiya to bhi data dikhe.
 
@@ -62,11 +72,21 @@ const addNote = ( text = "") =>     {
     function(){
         const lsNotes = JSON.parse(localStorage.getItem("notes")); // vapis se string se isse object bna rahe hai, kyuki array se string bnaya tha save karne ke liye data ko local storage mai.
         console.log(lsNotes);
-        lsNotes.forEach( // ye isliye bna rahe hai kyunki jo refresh se phele data aya usse overwrite na kare usse bhi dikhana hai.
-            (lsNote) => {
-                addNote(lsNote); // 1:jab local storage se data ara to addnote mai bhejna padega.
-            }
-        )
+
+        // ls mai chances hai null bhi aaye, then we do
+        if (lsNotes === null){ // jab notes/storage se kuch ni aaeyga , to EMPTY note add hoga.
+            addNote();
+
+        }else{ // iska mtlb local storage mai kuch("notes") hai to simply notes ko add karvayenge.
+
+                lsNotes.forEach( // ye isliye bna rahe hai kyunki jo refresh se phele data aya usse overwrite na kare usse bhi dikhana hai.
+                (lsNote) => {
+                    addNote(lsNote); // 1:jab local storage se data ara to addnote mai bhejna padega.
+                }
+            )
+        }
+        
+        
 
         // if(lsNotes.length === 0){
         //     localStorage.removeItem("notes")
@@ -76,3 +96,6 @@ const addNote = ( text = "") =>     {
         // }
     }
 )()
+
+
+//  Jab mere pass kuch bhi na ho to ek khali ek note hona chahiye. to uske liye humme saveNote mai change karna hoga
