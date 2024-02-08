@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 1.5rem;
+    height: 5rem;
+}
+
+.navbar>button{
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    height: 2rem;
+    cursor: pointer;
+    background-color: #212121;
+    color: #fff;
+    border-radius: 0.4rem;
+    /* outline: none; */
+    /* padding: 0.4rem 0.4rem;*/
+    /* margin: 1.5rem 1.5rem; */
+}
+
+.navbar>button>span{
+    font-size: 1.2rem;
+}
+
+#main{
+    /* margin-top: -5rem; */
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgb(126, 97, 154);
+    /* padding-top: 5rem; */
+    border: 0.8rem solid #000;
+    /* display: flex; */
+    /* position: relative; */
+}
+
+.notepad{
+    display: flex;
+    flex-wrap: wrap;
+    /* align-content: space-between; */
+    /* align-self: center; */
+}
+
+.note{
+    /* position: absolute; */
+    /* top: 0rem; */
+    width: 22rem;
+    height: 32rem;
+    border: 2px solid #fff;
+    margin: 2rem;
+    /* ye m-top/bottom add kiya hai jab notes ek se jayda hojayega */
+    margin-left: 5rem;
+    background-color: #ffff;
+    border-radius: 0.4rem;
+}
+
+.top{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    background-color: #212121;
+    color: #fff;
+    height: 2rem;
+    border-radius: 0.3rem;
+}
+
+.top>span{
+    cursor: pointer;
+}
+
+
+.note>textarea{
+    border: none;
+    width: 100%;
+    height: 90%;
+    resize: none;
+    padding: 0.7rem;
+    font-size: 1rem;
+}
+
+.note>textarea:focus{
+    border: 0;
+    outline: 0;
+}
