@@ -89,3 +89,22 @@
     border: 0;
     outline: 0;
 }
+
+
+@media (max-width: 550px){
+    .note{
+        min-width: 17rem;
+        height: 27rem;
+        margin-left: 3rem;
+
+    }
+}
+
+@media (max-width: 470px){
+    .note{
+        max-width: 17rem;
+        height: 23rem;
+        margin-left: 3 rem;
+
+    }
+}
