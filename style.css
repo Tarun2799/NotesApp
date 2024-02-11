@@ -2,11 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: cursive;
 }
 
 .navbar{
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
     padding-right: 1.5rem;
     height: 5rem;
@@ -30,6 +31,21 @@
     font-size: 1.2rem;
 }
 
+#heading{
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+#heading>img{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+
 #main{
     /* margin-top: -5rem; */
     width: 100%;
@@ -51,12 +67,15 @@
 .note{
     /* position: absolute; */
     /* top: 0rem; */
-    width: 22rem;
-    height: 32rem;
+    /* width: 22rem; */
+    width: 20rem;
+    /* height: 32rem; */
+    height: 28rem;
     border: 2px solid #fff;
     margin: 2rem;
     /* ye m-top/bottom add kiya hai jab notes ek se jayda hojayega */
-    margin-left: 5rem;
+    /* margin-left: 5rem; */
+    margin-left: 4rem;
     background-color: #ffff;
     border-radius: 0.4rem;
 }
@@ -90,21 +109,26 @@
     outline: 0;
 }
 
-
-@media (max-width: 550px){
+/* Jayda se jayda is width tak 0 to < width px */
+@media (max-width: 500px){
     .note{
-        min-width: 17rem;
-        height: 27rem;
-        margin-left: 3rem;
+        min-width: 13rem;
+        height: 25rem;
+        margin-left: 2.5rem;
 
+    }
+
+    #main{
+        width: 30rem;
+        min-height: 35rem;
     }
 }
 
-@media (max-width: 470px){
+/* @media (max-width: 470px){
     .note{
         max-width: 17rem;
         height: 23rem;
         margin-left: 3 rem;
 
     }
-}
+} */
